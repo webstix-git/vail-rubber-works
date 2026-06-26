@@ -22,7 +22,7 @@ export async function handleVerifiedFormSubmission(
 
     const verification = await verifyTurnstileToken(token, getRequestIp(request));
 
-    if (!verification.ok) {
+    if (verification.ok === false) {
       return NextResponse.json({ error: verification.error }, { status: verification.status });
     }
 
