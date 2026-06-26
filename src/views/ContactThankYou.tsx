@@ -1,0 +1,31 @@
+"use client";
+
+import Link from "next/link";
+import Layout from "@/components/Layout";
+import { CheckCircle, MessageSquare } from "lucide-react";
+
+const ContactThankYou = () => (
+  <Layout>
+    <section className="flex min-h-[60vh] items-center justify-center py-20">
+      <div className="container mx-auto px-4 text-center">
+        <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
+          <MessageSquare className="h-10 w-10 text-primary" />
+        </div>
+        <h1 className="text-3xl font-bold text-foreground md:text-4xl">Thanks for contacting us!</h1>
+        <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+          We will get in touch with you shortly.
+        </p>
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <Link href="/" className="rounded-md bg-primary px-8 py-3 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/85">
+            Return Home
+          </Link>
+          <Link href="/services" className="rounded-md border border-input bg-background px-8 py-3 text-base font-semibold text-foreground transition-colors hover:bg-secondary">
+            Explore Our Services
+          </Link>
+        </div>
+      </div>
+    </section>
+  </Layout>
+);
+
+export default ContactThankYou;
