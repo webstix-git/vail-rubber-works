@@ -1,11 +1,15 @@
 "use client";
 
+import { useCookieConsent } from "@/components/CookieConsent";
 import { imgSrc } from "@/lib/image";
 import Link from "next/link";
 import { Phone, Mail, MapPin, Youtube, Linkedin, Printer } from "lucide-react";
 import vailLogo from "@/assets/vail-logo.jpg";
 
-const Footer = () =>
+const Footer = () => {
+  const { openPreferences } = useCookieConsent();
+
+  return (
 <footer className="border-t bg-foreground text-background">
     <div className="container mx-auto px-4 py-12">
       <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
@@ -72,10 +76,14 @@ const Footer = () =>
       <div className="mt-10 border-t border-background/20 pt-6 text-center text-sm text-keep-sm opacity-60">
         &copy; {new Date().getFullYear()} Vail Rubber Works, Inc. All rights reserved. |{" "}
         <Link href="/sitemap" className="underline hover:opacity-100">Sitemap</Link> |{" "}
-        <Link href="/about-us/privacy-policy" className="underline hover:opacity-100">Privacy Policy</Link>
+        <Link href="/about-us/privacy-policy" className="underline hover:opacity-100">Privacy Policy</Link> |{" "}
+        <button type="button" onClick={openPreferences} className="underline hover:opacity-100">
+          Cookie Preferences
+        </button>
       </div>
     </div>
-  </footer>;
-
+  </footer>
+  );
+};
 
 export default Footer;
